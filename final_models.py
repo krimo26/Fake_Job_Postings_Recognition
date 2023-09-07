@@ -23,7 +23,7 @@ X = df
 vectorizer = TfidfVectorizer(max_features = 10000,ngram_range=(1,3))
 vectorizer.fit(X['text'])
 
-dictionary = vectorizer.get_feature_names()
+dictionary = vectorizer.get_feature_names_out()
 bow_features = vectorizer.transform(X.pop('text')).toarray()
 
 bow_df = pd.DataFrame(bow_features,columns=dictionary)
